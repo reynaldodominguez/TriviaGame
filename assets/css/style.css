@@ -1,3 +1,7 @@
+body{
+    text-align: center;
+}
+
 #title{
     width: 100%;
     font-size: 70px;
@@ -53,9 +57,27 @@ background: rgb(28, 70, 133);;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 50px;
-    background-size: cover;
 }
 
-#img_1_1{
+.img_logo{
     background-size: cover;
+
 }
+
+img{
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.first_comp{
+    margin-left: 35px;
+}
+.questionNumber{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+

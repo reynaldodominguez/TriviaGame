@@ -2,54 +2,54 @@ var question = 1;
 
 var mainPageData = [
     {
-        quest: "De que color es el caballo blanco de SB",
+        quest: "What team has won the most UEFA Champions League titles?",
         options: {
-
-            opt_one: "blanco", img_opt_one: "/assets/images/paris.jpg",
-            opt_two: "azul", img_opt_two: "<img src='assets/images/madrid.png'/>",
-            opt_tree: "rojo", img_opt_tree: "img_opt_tree",
-            opt_four: "negro", img_opt_four: "img_opt_four",
+            text: ["Real Madrid", "Liverpool FC", "Juventus", "Bayer Munchen",
+            ],
+            img: ["<img src='assets/images/madrid.png'/>", "<img src='assets/images/liverpool.png'/>",
+                "<img src='assets/images/juventus.png'/>", "<img src='assets/images/bayern.png'/>"
+            ]
         }
     },
-    
-    {
-        quest: "Donde Murio el soldado invisible",
-        options: {
 
-            opt_one: "blanco", img_opt_one: "img_opt_1_1",
-            opt_two: "azul", img_opt_two: "img_opt_1_2",
-            opt_tree: "rojo", img_opt_tree: "img_opt_1_3",
-            opt_four: "negro", img_opt_four: "img_opt_1_4",
-        }
-    },
     {
-        quest: "Real Madrid",
+        quest: "What team won UEFA Champions League in season 2012 - 2013?",
         options: {
-
-            opt_one: "blanco", img_opt_one: "img_opt_one",
-            opt_two: "azul", img_opt_two: "img_opt_two",
-            opt_tree: "rojo", img_opt_tree: "img_opt_tree",
-            opt_four: "negro", img_opt_four: "img_opt_four",
+            text: ["Bayer Munchen", "Paris Saint Germain", "Real Madrid", "Juventus",
+            ],
+            img: ["<img src='assets/images/bayern.png'/>", "<img src='assets/images/psg.png'/>",
+                "<img src='assets/images/madrid.png'/>", "<img src='assets/images/juventus.png'/>"
+            ]
         }
     },
     {
-        quest: "Barcelona",
+        quest: "What team won UEFA Champions League in season 2018 - 2019?",
         options: {
-
-            opt_one: "blanco", img_opt_one: "img_opt_one",
-            opt_two: "azul", img_opt_two: "img_opt_two",
-            opt_tree: "rojo", img_opt_tree: "img_opt_tree",
-            opt_four: "negro", img_opt_four: "img_opt_four",
+            text: ["Liverpool FC", "Bayer Munchen", "Paris Saint Germain", "Real Madrid",
+            ],
+            img:["<img src='assets/images/liverpool.png'/>", "<img src='assets/images/bayern.png'/>",
+            "<img src='assets/images/psg.png'/>", "<img src='assets/images/madrid.png'/>"
+            ]
         }
     },
     {
-        quest: "Bayern",
+        quest: "Team with most Runners-up in the UEFA Champions League history",
         options: {
-
-            opt_one: "blanco", img_opt_one: "img_opt_one",
-            opt_two: "azul", img_opt_two: "img_opt_two",
-            opt_tree: "rojo", img_opt_tree: "img_opt_tree",
-            opt_four: "negro", img_opt_four: "img_opt_four",
+            text: ["Paris Saint Germain", "Juventus", "Bayer Munchen", "Liverpool FC",
+            ],
+            img:["<img src='assets/images/psg.png'/>", "<img src='assets/images/juventus.png'/>",
+            "<img src='assets/images/bayern.png'/>", "<img src='assets/images/liverpool.png'/>"
+            ]
+        }
+    },
+    {
+        quest: "What team won UEFA Champions League in season 2017 - 2018?",
+        options: {
+            text: ["Juventus", "Real Madrid", "Liverpool FC", "Paris Saint Germain",
+        ],
+            img:["<img src='assets/images/juventus.png'/>", "<img src='assets/images/madrid.png'/>",
+            "<img src='assets/images/liverpool.png'/>", "<img src='assets/images/psg.png'/>"
+            ]
         }
     }
 ]
@@ -63,17 +63,21 @@ console.log(mainPageData.length);
 
 for (var i = 0; i < mainPageData.length; i++) {
     var questDiv = "#quest" + (i + 1);
-    var imgDiv = "";
     //imgDiv = "#img_" + (i + 1);
     console.log(questDiv);
     //console.log(imgDiv);
     $(questDiv).text(mainPageData[i].quest);
     for (var j = 0; j < 4; j++) {
-        imgDiv = "#img_"     + (i + 1) + "_" + (j + 1);
+        textDiv = "#text_" + (i + 1) + "_" + (j + 1);
+        imgDiv = "#img_" + (i + 1) + "_" + (j + 1);
+        $(imgDiv).html(mainPageData[i].options.img[j]);
+        $(textDiv).text(mainPageData[i].options.text[j]);
         console.log(imgDiv);
-        //$(imgDiv).html(mainPageData[0].options.img_opt_two);
+        console.log(mainPageData[i].options.img[j]);
+        //newImg.attr("src", response.Poster)
+        //$(imgDiv).css("background-image", mainPageData[i].options.img[j]);
+        //console.log(mainPageData[i].options.img[j])
     }
-    console.log(mainPageData[i].quest);
 }
 
 

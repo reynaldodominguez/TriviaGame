@@ -1,0 +1,61 @@
+#title{
+    width: 100%;
+    font-size: 70px;
+    letter-spacing: 10px;
+    margin: 0px;
+    text-align: center;
+    background: rgb(28, 70, 133);
+    color: white;   
+    padding: 20px;
+}
+
+#timerdiv{
+margin-top: 10px;
+
+ width: 100%;
+ text-align: center;
+}
+
+#timer{
+    font-size: 70px;
+}
+.mainpage{
+    text-align: center;
+    height: 400px;
+    align-content: center;
+    border: solid 1px gray;
+    border-radius: 30px;
+    width: 100%;
+}
+
+#btn-start{
+    margin-top: 140px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    width: 300px;
+    height: 120px;
+    font-size: 40px;
+
+    border: 0px;
+
+}
+
+#navigator{
+    margin-top: 25px;
+    text-align: center;
+}
+.btn-secondary{
+background: rgb(28, 70, 133);;
+}
+
+.question{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    background-size: cover;
+}
+
+#img_1_1{
+    background-size: cover;
+}

@@ -54,18 +54,10 @@ var mainPageData = [
     }
 ]
 console.log(mainPageData.length);
-//console.log(mainPageData[0].quest1);
-//console.log(mainPageData[0].options.opt_one);
-//console.log(mainPageData[0].options.opt_two);
-//console.log(mainPageData[0].options.opt_tree);
-//console.log(mainPageData[0].options.opt_four);
-//console.log(mainPageData[0].options.img_opt_four);
 
 for (var i = 0; i < mainPageData.length; i++) {
     var questDiv = "#quest" + (i + 1);
-    //imgDiv = "#img_" + (i + 1);
     console.log(questDiv);
-    //console.log(imgDiv);
     $(questDiv).text(mainPageData[i].quest);
     for (var j = 0; j < 4; j++) {
         textDiv = "#text_" + (i + 1) + "_" + (j + 1);
@@ -74,12 +66,48 @@ for (var i = 0; i < mainPageData.length; i++) {
         $(textDiv).text(mainPageData[i].options.text[j]);
         console.log(imgDiv);
         console.log(mainPageData[i].options.img[j]);
-        //newImg.attr("src", response.Poster)
-        //$(imgDiv).css("background-image", mainPageData[i].options.img[j]);
-        //console.log(mainPageData[i].options.img[j])
     }
 }
 
+$(".img_quest_1").on("click", function(){
+    console.log(this);
+    $(".img_quest_1").css("border", "none")
+    $(this).css({"border-color": "#C1E0FF", 
+             "border-weight":"100px", 
+             "border-style":"solid"});
+})
+
+$(".img_quest_2").on("click", function(){
+    console.log(this);
+    $(".img_quest_2").css("border", "none")
+    $(this).css({"border-color": "#C1E0FF", 
+             "border-weight":"100px", 
+             "border-style":"solid"});
+})
+
+$(".img_quest_3").on("click", function(){
+    console.log(this);
+    $(".img_quest_3").css("border", "none")
+    $(this).css({"border-color": "#C1E0FF", 
+             "border-weight":"100px", 
+             "border-style":"solid"});
+})
+
+$(".img_quest_4").on("click", function(){
+    console.log(this);
+    $(".img_quest_4").css("border", "none")
+    $(this).css({"border-color": "#C1E0FF", 
+             "border-weight":"100px", 
+             "border-style":"solid"});
+})
+
+$(".img_quest_5").on("click", function(){
+    console.log(this);
+    $(".img_quest_5").css("border", "none")
+    $(this).css({"border-color": "#C1E0FF", 
+             "border-weight":"100px", 
+             "border-style":"solid"});
+})
 
 function navForDivs(divToShow) {
     $("#question-1").hide();

@@ -1,3 +1,4 @@
+//define variables
 var question = 1;
 
 var mainPageData = [
@@ -65,6 +66,7 @@ var wrong = 0;
 var unanswered = 0;
 var res_quest;
 
+//function that check and print the results
 function checkResults() {
     for (var k = 0; k < mainPageData.length; k++) {
         if (mainPageData[k].value == 1) {
@@ -97,7 +99,7 @@ function checkResults() {
 }
 
 console.log(mainPageData.length);
-
+//function timer that determinate the time for the game
 function timer() {
     var timeElapse = 59;
     count = setInterval(function () {
@@ -114,7 +116,7 @@ function timer() {
     }, 1000)
 
 }
-
+//function to convert the timer to mm:ss
 function timeConverter(t) {
     var minutes = Math.floor(t / 60);
     var seconds = t - (minutes * 60);
@@ -133,7 +135,7 @@ function timeConverter(t) {
 
     return minutes + ":" + seconds;
 }
-
+//take the info in the mainPage Data object and show the questions info
 for (var i = 0; i < mainPageData.length; i++) {
     var questDiv = "#quest" + (i + 1);
     console.log(questDiv);
@@ -148,6 +150,7 @@ for (var i = 0; i < mainPageData.length; i++) {
     }
 }
 
+//on click for the fist question
 $(".img_quest_1").on("click", function () {
     console.log(this);
     $(".img_quest_1").css("border", "none")
@@ -164,6 +167,7 @@ $(".img_quest_1").on("click", function () {
     console.log(mainPageData[0].value);
 })
 
+//on click for the second question
 $(".img_quest_2").on("click", function () {
     console.log(this);
     $(".img_quest_2").css("border", "none")
@@ -180,6 +184,7 @@ $(".img_quest_2").on("click", function () {
     console.log(mainPageData[1].value);
 })
 
+//on click for the third question
 $(".img_quest_3").on("click", function () {
     console.log(this);
     $(".img_quest_3").css("border", "none")
@@ -196,6 +201,7 @@ $(".img_quest_3").on("click", function () {
     console.log(mainPageData[2].value);
 })
 
+//on click for the fourth question
 $(".img_quest_4").on("click", function () {
     console.log(this);
     $(".img_quest_4").css("border", "none")
@@ -212,6 +218,7 @@ $(".img_quest_4").on("click", function () {
     console.log(mainPageData[3].value);
 })
 
+//on click for the fith question
 $(".img_quest_5").on("click", function () {
     console.log(this);
     $(".img_quest_5").css("border", "none")
@@ -227,6 +234,8 @@ $(".img_quest_5").on("click", function () {
     }
     console.log(mainPageData[4].value);
 })
+
+//on click to sent the answers before finish the time
 $(".btn_sent_ans").on("click", function () {
     console.log(this);
     navForDivs($("#results"))
@@ -236,8 +245,7 @@ $(".btn_sent_ans").on("click", function () {
     checkResults();
 })
 
-
-
+//function to naviate the diferents questions
 function navForDivs(divToShow) {
     $("#question-1").hide();
     $("#question-2").hide();
@@ -248,6 +256,7 @@ function navForDivs(divToShow) {
     divToShow.show();
 }
 
+//hide all the divs 
 $("#question-1").hide();
 $("#question-2").hide();
 $("#question-3").hide();
@@ -258,6 +267,7 @@ $("#minutes").hide();
 $("#seconds").hide();
 $("#results").hide();
 
+//on click to start the game
 $("#btn-start").on("click", function () {
     $("#question-1").show();
     $("#start").hide();
@@ -268,31 +278,33 @@ $("#btn-start").on("click", function () {
     timer();
 });
 
+//on click to change direct to fisrt question
 $("#btn-one").on("click", function () {
     navForDivs($("#question-1"))
     question = 1;
 });
-
+//on click to change direct to second question
 $("#btn-two").on("click", function () {
     navForDivs($("#question-2"))
     question = 2;
 });
-
+//on click to change direct to third question
 $("#btn-tree").on("click", function () {
     navForDivs($("#question-3"))
     question = 3;
 });
-
+//on click to change direct to fourth question
 $("#btn-four").on("click", function () {
     navForDivs($("#question-4"))
     question = 4;
 });
-
+//on click to change direct to fifth question
 $("#btn-five").on("click", function () {
     navForDivs($("#question-5"))
     question = 5;
 });
 
+//on click to move to previous question
 $("#btn-prev").on("click", function () {
 
     if (question === 1) {
@@ -317,7 +329,7 @@ $("#btn-prev").on("click", function () {
         question = 4;
     }
 });
-
+//on click to move to next question
 $("#btn-next").on("click", function () {
 
     if (question === 1) {

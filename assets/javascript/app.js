@@ -2,7 +2,9 @@ var question = 1;
 
 var mainPageData = [
     {
-        quest: "What team has won the most UEFA Champions League titles?",
+
+        quest: "What team won UEFA Champions League in season 2018 - 2019?",
+        value: 0,
         options: {
             text: ["Real Madrid", "Liverpool FC", "Juventus", "Bayer Munchen",
             ],
@@ -14,6 +16,7 @@ var mainPageData = [
 
     {
         quest: "What team won UEFA Champions League in season 2012 - 2013?",
+        value: 0,
         options: {
             text: ["Bayer Munchen", "Paris Saint Germain", "Real Madrid", "Juventus",
             ],
@@ -23,37 +26,113 @@ var mainPageData = [
         }
     },
     {
-        quest: "What team won UEFA Champions League in season 2018 - 2019?",
+        quest: "What team has won the most UEFA Champions League titles?",
+        value: 0,
         options: {
             text: ["Liverpool FC", "Bayer Munchen", "Paris Saint Germain", "Real Madrid",
             ],
-            img:["<img src='assets/images/liverpool.png'/>", "<img src='assets/images/bayern.png'/>",
-            "<img src='assets/images/psg.png'/>", "<img src='assets/images/madrid.png'/>"
+            img: ["<img src='assets/images/liverpool.png'/>", "<img src='assets/images/bayern.png'/>",
+                "<img src='assets/images/psg.png'/>", "<img src='assets/images/madrid.png'/>"
             ]
         }
     },
     {
         quest: "Team with most Runners-up in the UEFA Champions League history",
+        value: 0,
         options: {
             text: ["Paris Saint Germain", "Juventus", "Bayer Munchen", "Liverpool FC",
             ],
-            img:["<img src='assets/images/psg.png'/>", "<img src='assets/images/juventus.png'/>",
-            "<img src='assets/images/bayern.png'/>", "<img src='assets/images/liverpool.png'/>"
+            img: ["<img src='assets/images/psg.png'/>", "<img src='assets/images/juventus.png'/>",
+                "<img src='assets/images/bayern.png'/>", "<img src='assets/images/liverpool.png'/>"
             ]
         }
     },
     {
         quest: "What team won UEFA Champions League in season 2017 - 2018?",
+        value: 0,
         options: {
             text: ["Juventus", "Real Madrid", "Liverpool FC", "Paris Saint Germain",
-        ],
-            img:["<img src='assets/images/juventus.png'/>", "<img src='assets/images/madrid.png'/>",
-            "<img src='assets/images/liverpool.png'/>", "<img src='assets/images/psg.png'/>"
+            ],
+            img: ["<img src='assets/images/juventus.png'/>", "<img src='assets/images/madrid.png'/>",
+                "<img src='assets/images/liverpool.png'/>", "<img src='assets/images/psg.png'/>"
             ]
         }
     }
 ]
+var count;
+var correct = 0;
+var wrong = 0;
+var unanswered = 0;
+var res_quest;
+
+function checkResults() {
+    for (var k = 0; k < mainPageData.length; k++) {
+        if (mainPageData[k].value == 1) {
+            console.log("question " + k + " correct");
+            res_quest = "#res_quest_" + (k + 1);
+            console.log(res_quest);
+            $(res_quest).text("Question" + (k + 1) +" : Correct");
+            correct++;
+        } else if (mainPageData[k].value == 2) {
+            console.log("question " + k + " wrong");
+            res_quest = "#res_quest_" + (k + 1);
+            console.log(res_quest);
+            $(res_quest).text("Question" + (k + 1) +" : Wrong");
+            wrong++;
+        } else if (mainPageData[k].value == 0) {
+            console.log("question " + k + " unanswered");
+            res_quest = "#res_quest_" + (k + 1);
+            console.log(res_quest);
+            $(res_quest).text("Question" + (k + 1) +" : Unanswered")
+            unanswered++;
+        }
+
+    }
+    $("#correct").text("Correct: " + correct)
+    $("#wrong").text("Wrong:  " + wrong)
+    $("#uns").text("Unanswered: " + unanswered)
+    console.log("correct: " + correct);
+    console.log("wrong: " + wrong);
+    console.log("unanswered: " + unanswered);
+}
+
 console.log(mainPageData.length);
+
+function timer() {
+    var timeElapse = 59;
+    count = setInterval(function () {
+        //console.log(timeElapse);
+        var timeToPrint = timeConverter(timeElapse)
+        $(time).text(timeToPrint);
+        timeElapse--;
+        if (timeElapse < 0) {
+            clearInterval(count);
+            navForDivs($("#results"))
+            $("#navigator").hide();
+            checkResults();
+        }
+    }, 1000)
+
+}
+
+function timeConverter(t) {
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    if (minutes === 0) {
+        minutes = "00";
+    }
+
+    else if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    return minutes + ":" + seconds;
+}
 
 for (var i = 0; i < mainPageData.length; i++) {
     var questDiv = "#quest" + (i + 1);
@@ -69,45 +148,95 @@ for (var i = 0; i < mainPageData.length; i++) {
     }
 }
 
-$(".img_quest_1").on("click", function(){
+$(".img_quest_1").on("click", function () {
     console.log(this);
     $(".img_quest_1").css("border", "none")
-    $(this).css({"border-color": "#C1E0FF", 
-             "border-weight":"100px", 
-             "border-style":"solid"});
+    $(this).css({
+        "border-color": "#C1E0FF",
+        "border-weight": "100px",
+        "border-style": "solid"
+    });
+    if (this.id == "img_1_2") {
+        mainPageData[0].value = 1
+    } else {
+        mainPageData[0].value = 2
+    }
+    console.log(mainPageData[0].value);
 })
 
-$(".img_quest_2").on("click", function(){
+$(".img_quest_2").on("click", function () {
     console.log(this);
     $(".img_quest_2").css("border", "none")
-    $(this).css({"border-color": "#C1E0FF", 
-             "border-weight":"100px", 
-             "border-style":"solid"});
+    $(this).css({
+        "border-color": "#C1E0FF",
+        "border-weight": "100px",
+        "border-style": "solid"
+    });
+    if (this.id == "img_2_1") {
+        mainPageData[1].value = 1
+    } else {
+        mainPageData[1].value = 2
+    }
+    console.log(mainPageData[1].value);
 })
 
-$(".img_quest_3").on("click", function(){
+$(".img_quest_3").on("click", function () {
     console.log(this);
     $(".img_quest_3").css("border", "none")
-    $(this).css({"border-color": "#C1E0FF", 
-             "border-weight":"100px", 
-             "border-style":"solid"});
+    $(this).css({
+        "border-color": "#C1E0FF",
+        "border-weight": "100px",
+        "border-style": "solid"
+    });
+    if (this.id == "img_3_4") {
+        mainPageData[2].value = 1
+    } else {
+        mainPageData[2].value = 2
+    }
+    console.log(mainPageData[2].value);
 })
 
-$(".img_quest_4").on("click", function(){
+$(".img_quest_4").on("click", function () {
     console.log(this);
     $(".img_quest_4").css("border", "none")
-    $(this).css({"border-color": "#C1E0FF", 
-             "border-weight":"100px", 
-             "border-style":"solid"});
+    $(this).css({
+        "border-color": "#C1E0FF",
+        "border-weight": "100px",
+        "border-style": "solid"
+    });
+    if (this.id == "img_4_2") {
+        mainPageData[3].value = 1
+    } else {
+        mainPageData[3].value = 2
+    }
+    console.log(mainPageData[3].value);
 })
 
-$(".img_quest_5").on("click", function(){
+$(".img_quest_5").on("click", function () {
     console.log(this);
     $(".img_quest_5").css("border", "none")
-    $(this).css({"border-color": "#C1E0FF", 
-             "border-weight":"100px", 
-             "border-style":"solid"});
+    $(this).css({
+        "border-color": "#C1E0FF",
+        "border-weight": "100px",
+        "border-style": "solid"
+    });
+    if (this.id == "img_5_2") {
+        mainPageData[4].value = 1
+    } else {
+        mainPageData[4].value = 2
+    }
+    console.log(mainPageData[4].value);
 })
+$(".btn_sent_ans").on("click", function () {
+    console.log(this);
+    navForDivs($("#results"))
+    $("#navigator").hide();
+    $("#time").text(":");
+    clearInterval(count);
+    checkResults();
+})
+
+
 
 function navForDivs(divToShow) {
     $("#question-1").hide();
@@ -115,6 +244,7 @@ function navForDivs(divToShow) {
     $("#question-3").hide();
     $("#question-4").hide();
     $("#question-5").hide();
+    $("#results").hide();
     divToShow.show();
 }
 
@@ -124,11 +254,18 @@ $("#question-3").hide();
 $("#question-4").hide();
 $("#question-5").hide();
 $("#navigator").hide();
+$("#minutes").hide();
+$("#seconds").hide();
+$("#results").hide();
 
 $("#btn-start").on("click", function () {
     $("#question-1").show();
     $("#start").hide();
     $("#navigator").show();
+    $("#minutes").show();
+    $("#seconds").show();
+    $("#time").text("01:00");
+    timer();
 });
 
 $("#btn-one").on("click", function () {

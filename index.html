@@ -25,7 +25,7 @@
     </header>
 
     <div class="container" id="timerdiv">
-        <h2 id="timer"> <span id="minutes">00</span>:<span id="seconds">00</span></h2>
+        <h2 id="timer"> <span id="time">:</span></h2>
     </div>
 
     <div class="container mainpage" id="start">
@@ -90,7 +90,12 @@
             </div>
         </div>
         <div class="row">
-            <h3 class="questionNumber">Question 1</h3>
+            <div class="col-6">
+                <h3 class="questionNumber">Question 1</h3>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary btn_sent_ans">Send Answers</button>
+            </div>
         </div>
     </div>
     <div class="container mainpage" id="question-2">
@@ -150,7 +155,12 @@
 
         </div>
         <div class="row">
-            <h3 class="questionNumber">Question 2</h3>
+            <div class="col-6">
+                <h3 class="questionNumber">Question 2</h3>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary btn_sent_ans">Send Answers</button>
+            </div>
         </div>
     </div>
     <div class="container mainpage" id="question-3">
@@ -210,8 +220,13 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6">
                 <h3 class="questionNumber">Question 3</h3>
             </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary btn_sent_ans">Send Answers</button>
+            </div>
+        </div>
 
     </div>
     <div class="container mainpage" id="question-4">
@@ -270,8 +285,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6">
                 <h3 class="questionNumber">Question 4</h3>
             </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary btn_sent_ans">Send Answers</button>
+            </div>
+        </div>
+    </div>
 
     </div>
     <div class="container mainpage" id="question-5">
@@ -330,10 +351,57 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6">
                 <h3 class="questionNumber">Question 5</h3>
             </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary btn_sent_ans">Send Answers</button>
+            </div>
+        </div>
 
     </div>
+
+    <div class="container mainpage" id="results">
+        <div class="row">
+            <h2 id="resultTitle">Results</h2>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3 id="res_quest_1">Question 1:  </h3> 
+            </div>
+            <div class="col-6">
+                <h3 id="res_quest_2">Question 2:  </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3 id="res_quest_3">Question 3:  </h3>
+            </div>
+            <div class="col-6">
+                <h3 id="res_quest_4">Question 4:  </h3>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="cent_st" id="res_quest_5">Question 5:  </h3>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3 id="correct">Correct: </h3>
+            </div>
+            <div class="col-6">
+                <h3 id="wrong">Wrong: </h3>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="cent_st" id="uns">Unanswered: </h3>
+        </div>
+
+
+    </div>
+
+
+
+
 
     <div class="container" id="navigator">
 
